@@ -557,7 +557,8 @@ class Overview(Controller):
                 webbrowser.open_new("file://%s" % path)
             else:
                 try:
-                    gtk.show_uri(gdk.Screen(), "file://%s" % os.path.split(path)[0], 0)
+                    gtk.show_uri(gdk.Screen().get_default(),
+                                 "file://%s" % path, gdk.CURRENT_TIME)
                 except:
                     pass # bug 626656 - no use in capturing this one i think
 
